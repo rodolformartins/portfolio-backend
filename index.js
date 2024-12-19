@@ -9,13 +9,13 @@ app.use(express.json());
 // Configurar a conexão com o PostgreSQL
 const sequelize = new Sequelize({
     dialect: 'postgres',
-    host: process.env.DB_HOST, // Banco de dados configurado no Railway
-    username: process.env.DB_USERNAME, // Usuário configurado no Railway
-    password: process.env.DB_PASSWORD, // Senha configurada no Railway
-    database: process.env.DB_NAME, // Nome do banco de dados configurado no Railway
-    logging: console.log, // Se quiser ver os logs de consultas no console
+    host: 'autorack.proxy.rlwy.net', // Host do banco de dados
+    port: 25009, // Porta do banco de dados
+    username: 'postgres', // Nome de usuário
+    password: 'fvzZhnULgbOtXiQQyVxXpRcKmbJbIfjC', // Senha
+    database: 'railway', // Nome do banco de dados
+    logging: console.log, // Para exibir logs das consultas
 });
-
 
 
 // Testar a conexão
