@@ -1,0 +1,22 @@
+# Ignorar a pasta node_modules
+node_modules/
+
+# Ignorar logs
+logs/
+*.log
+
+# Ignorar arquivos do ambiente
+.env
+
+# Ignorar cache do npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignorar diretórios do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Ignorar arquivos temporários do editor
+.vscode/
+.idea/
