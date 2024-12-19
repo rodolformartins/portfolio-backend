@@ -56,6 +56,6 @@ app.post('/messages', async (req, res) => {
     }
 });
 
-aapp.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });
