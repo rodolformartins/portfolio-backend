@@ -7,11 +7,15 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // Configurar a conexão com o PostgreSQL
-const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER, process.env.DB_PASSWORD, {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
+const sequelize = new Sequelize({
     dialect: 'postgres',
+    host: process.env.DB_HOST, // Banco de dados configurado no Railway
+    username: process.env.DB_USERNAME, // Usuário configurado no Railway
+    password: process.env.DB_PASSWORD, // Senha configurada no Railway
+    database: process.env.DB_NAME, // Nome do banco de dados configurado no Railway
+    logging: console.log, // Se quiser ver os logs de consultas no console
 });
+
 
 
 // Testar a conexão
