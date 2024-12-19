@@ -1,20 +1,18 @@
 const express = require('express');
 const { Sequelize, DataTypes } = require('sequelize');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware para processar JSON
 app.use(express.json());
 
 // Configurar a conexão com o PostgreSQL
-const sequelize = new Sequelize({
+const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER, process.env.DB_PASSWORD, {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
     dialect: 'postgres',
-    host: 'localhost', // ou o endereço do seu servidor PostgreSQL
-    username: 'rodolfo', // seu usuário PostgreSQL
-    password: '123', // sua senha PostgreSQL
-    database: 'portfolio_database', // nome do banco de dados
-    logging: console.log, // Se quiser ver os logs de consultas no console
 });
+
 
 // Testar a conexão
 sequelize.authenticate()
@@ -58,6 +56,6 @@ app.post('/messages', async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
+aapp.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
